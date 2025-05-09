@@ -1,0 +1,26 @@
+<div class="col-md-2">
+  <h5 style="margin-top: 10px;">Categories</h5>
+  <hr>
+  <p><a href="/" class="anchor">All</a></p>
+  <p><a href="/filter-by-cat/cat">Cat</a></p>
+  <p><a href="/filter-by-cat/dog">Dog</a></p>
+  <hr>
+  <h5>Sort By price</h5>
+  <hr>
+  <p><a href="/sort-by-price/asc">Low to High</a></p>
+  <p><a href="/sort-by-price/desc">High to Low</a></p>
+  <h5>Filter By Price</h5>
+  <hr>
+  <form action="/filter-by-range" method="get">
+    <div class="mb-1">
+      <label class="form-label">Min:</label>
+      <input type="number" class="form-control" placeholder="min" name="min">
+    </div>
+    <div class="mb-1">
+      <label class="form-label">Max:</label>
+      <input type="number" class="form-control" placeholder="max" name="max">
+    </div>
+    <button type="submit" class="btn btn-danger">Search</button>
+  </form>
+  <hr>
+</div>

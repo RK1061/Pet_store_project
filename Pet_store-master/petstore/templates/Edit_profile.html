@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block 'main' %}
+<style> 
+    .box {
+        width: 400px;
+        background-color: #e6ecf1;
+        padding: 20px;
+        margin-top: 75px;
+        margin-bottom: 50px;
+        margin-left: 330px;
+        border-radius: 10px;
+        box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
+        line-height: 10px;
+        color: black;
+        
+     }
+</style>
+<div class="col-md-10 bg-success p-2 text-dark bg-opacity-25" style="background-color: rgb(223, 179, 227);">
+  <div class="box">
+    <form action="" method="post">
+      {% csrf_token %}
+      <h4 style="text-align: center; color: orange; font-weight: 700; font-size: 30px;">Edit Profile</h4><br>
+      <h5 style="text-align: center; color: black;">or <a href="/"><span style="color: rgb(3, 47, 112);">return to home</span></a></h5>
+
+      {% if messages %}
+        {% for message in messages %}
+          <div class="alert alert-success">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" name="name" value="{{ request.user.username }}" required>
+      </div><br>
+
+      <div class="mb-3">
+        <label for="email" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="email" name="email" value="{{ request.user.email }}" placeholder="Enter Email" required>
+      </div><br>
+
+      <div class="mb-3">
+        <label for="password" class="form-label">New Password</label>
+        <input type="password" class="form-control" id="password" name="password" placeholder="Enter New Password (optional)">
+      </div><br>
+
+      <div class="d-grid gap-2">
+        <button class="btn btn-primary" type="submit">Update Profile</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock 'main' %}

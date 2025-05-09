@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block 'main' %}
+<div class="col-md-10 ">
+  {% if pets %}
+    <div class="row ">  
+      {% for pet in pets %}
+      <div class="col-md-3 " >
+        <div class="card" style="width: 100%; margin-top: 15px;">
+          <img src="{{pet.petimage.url}}" alt="pet.name" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">name: {{pet.name}}</h5>
+            <h4>{{pet.breed}}</h4>
+            <p class="card-text">{{pet.type}}</p>
+            <strong>&#8377;{{pet.price}}</strong><br>
+            <a href="/details/{{pet.id}}" class="btn btn-danger">Details</a>
+            <a href="/addtocart/{{pet.id}}" class="btn btn-primary">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+{% endif %}
+</div>
+{% endblock 'main' %}
+
